@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+
+# IDE files
+.idea/
+.vscode/
+.DS_Store
+
+# ComfyUI temporary/output folders
+output/

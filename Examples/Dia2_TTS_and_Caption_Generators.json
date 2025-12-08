@@ -1,0 +1,499 @@
+{
+  "id": "54b5de42-cb41-48d8-9cfe-5a6f2d029523",
+  "revision": 0,
+  "last_node_id": 165,
+  "last_link_id": 204,
+  "nodes": [
+    {
+      "id": 111,
+      "type": "LoadAudio",
+      "pos": [
+        -160,
+        410
+      ],
+      "size": [
+        400,
+        140
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            201
+          ]
+        }
+      ],
+      "title": "Voice_Sample_S2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Voice_Sample_S2.wav",
+        null,
+        null
+      ],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 109,
+      "type": "ShowText|pysssss",
+      "pos": [
+        700,
+        130
+      ],
+      "size": [
+        400,
+        420
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 203
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "JSON Time Stamps",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "f2838ed5e59de4d73cde5c98354b87a8d3200190",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "[[\"Welcome\", 0.16], [\"to\", 0.4], [\"the\", 0.56], [\"Dia2\", 0.72], [\"TTS\", 1.04], [\"Generator.\", 1.44], [\"Nice.\", 2.0], [\"Are\", 2.56], [\"we\", 2.96], [\"testing\", 3.12], [\"voices\", 3.36], [\"today?\", 3.68], [\"Yep.\", 4.24], [\"Just\", 4.64], [\"a\", 4.88], [\"quick\", 5.04], [\"demo.\", 5.2], [\"(laughs).\", 5.76], [\"Great.\", 6.32], [\"I\", 6.88], [\"hope\", 7.12], [\"I\", 7.36], [\"sound\", 7.52], [\"normal\", 7.68], [\"this\", 7.84], [\"time.\", 8.08], [\"No\", 8.56], [\"promises.\", 9.12], [\"Press\", 9.68], [\"Generate\", 10.24], [\"and\", 10.8], [\"find\", 10.96], [\"out.\", 11.2]]"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 100,
+      "type": "LoadAudio",
+      "pos": [
+        -160,
+        220
+      ],
+      "size": [
+        400,
+        140
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            200
+          ]
+        }
+      ],
+      "title": "Voice_Sample_S1",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Voice_Sample_S1.wav",
+        null,
+        null
+      ],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 113,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -150,
+        10
+      ],
+      "size": [
+        380,
+        70
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Enable Voice Samples",
+      "properties": {
+        "matchColors": "Purple",
+        "matchTitle": "Voice Samples",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 144,
+      "type": "Dia2_Captions_Generator",
+      "pos": [
+        700,
+        650
+      ],
+      "size": [
+        400,
+        160
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "timestamps_json",
+          "type": "STRING",
+          "widget": {
+            "name": "timestamps_json"
+          },
+          "link": 204
+        }
+      ],
+      "outputs": [
+        {
+          "name": "caption_text",
+          "type": "STRING",
+          "links": [
+            184
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Dia2_Captions_Generator"
+      },
+      "widgets_values": [
+        "[]",
+        "Sentence",
+        "SRT",
+        true
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 135,
+      "type": "ShowText|pysssss",
+      "pos": [
+        700,
+        860
+      ],
+      "size": [
+        400,
+        480
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 184
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Time Stamps",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "f2838ed5e59de4d73cde5c98354b87a8d3200190",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "1\n00:00:00,160 --> 00:00:01,439\nWelcome to the Dia2 TTS Generator.\n\n2\n00:00:02,000 --> 00:00:02,000\nNice.\n\n3\n00:00:02,560 --> 00:00:03,680\nAre we testing voices today?\n\n4\n00:00:04,240 --> 00:00:04,240\nYep.\n\n5\n00:00:04,639 --> 00:00:05,200\nJust a quick demo.\n\n6\n00:00:05,759 --> 00:00:05,759\n(laughs).\n\n7\n00:00:06,320 --> 00:00:06,320\nGreat.\n\n8\n00:00:06,879 --> 00:00:08,080\nI hope I sound normal this time.\n\n9\n00:00:08,560 --> 00:00:09,119\nNo promises.\n\n10\n00:00:09,679 --> 00:00:11,199\nPress Generate and find out.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 158,
+      "type": "Dia2_TTS_Generator",
+      "pos": [
+        280,
+        -10
+      ],
+      "size": [
+        400,
+        560
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Voice_Sample_S1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 200
+        },
+        {
+          "name": "Voice_Sample_S2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 201
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            202
+          ]
+        },
+        {
+          "name": "timestamps_json",
+          "type": "STRING",
+          "links": [
+            203,
+            204
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Dia2_TTS_Generator"
+      },
+      "widgets_values": [
+        "[S1] Welcome to the Dia2 TTS Generator.\n[S2] Nice. Are we testing voices today?\n[S1] Yep. Just a quick demo. (laughs).\n[S2] Great. I hope I sound normal this time.\n[S1] No promises. Press Generate and find out.",
+        777,
+        "fixed",
+        "Dia2-2B\\Dia2-2B.safetensors",
+        "Dia2-2B\\tokenizer.json",
+        "",
+        "auto",
+        "auto",
+        true,
+        true,
+        true,
+        "mp3",
+        2,
+        0.6,
+        50,
+        0.8,
+        50
+      ],
+      "color": "#723fff",
+      "bgcolor": "#5e2bff",
+      "shape": 1
+    },
+    {
+      "id": 84,
+      "type": "PreviewAudio",
+      "pos": [
+        700,
+        -10
+      ],
+      "size": [
+        400,
+        90
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 202
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 165,
+      "type": "Note",
+      "pos": [
+        -170,
+        610
+      ],
+      "size": [
+        840,
+        750
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "====================================================\n🗣️ Dia2 TTS Generator & 💬 Dia2 Captions Generator\n====================================================\n\nOVERVIEW:\n---------\nThese nodes let you generate high-quality speech and captions directly in ComfyUI.\n\n1) 🗣️ Dia2 TTS Generator\n   - Converts text prompts into audio using the Dia2-2B TTS model.\n   - Supports multiple speakers using tags: [S1], [S2]\n   - Optional voice sample inputs for speaker style transfer <- May Take A while on first run.  Feels like it hangs but it doesn't.\n   - Outputs waveform + per-word timestamps JSON.\n\n2) 💬 Dia2 Captions Generator\n   - Converts timestamps JSON from TTS node into captions.\n   - Modes:\n       * Per Word\n       * Sentence\n       * Sentence Advanced (respects punctuation and parentheses)\n   - Outputs: SRT, SSA/ASS, or VTT formats.\n   - Automatically saves to \"output/captions\" and avoids overwriting files.\n\nSETUP:\n------\n1) Download Dia2-2B model & tokenizer:\n   - Model: https://huggingface.co/nari-labs/Dia2-2B/tree/main\n   - Rename weights file: Dia2-2B.safetensors\n   - Ensure tokenizer files are in the same folder.\n\n2) Place files in ComfyUI:\n   ComfyUI/models/Dia2/Dia2-2B.safetensors\n   ComfyUI/models/Dia2/<tokenizer files>\n\nUSAGE TIPS:\n-----------\n- TTS Node:\n    * Prompt: multiline text with [S1]/[S2] speaker tags\n    * Seed: 0 = random, >0 = reproducible\n    * Output format: wav, flac, mp3\n    * Voice_Sample_S1/S2: optional speaker style transfer <- May Take A while on first run.  Feels like it hangs but it doesn't.\n\n- Captions Node:\n    * Input: timestamps JSON from TTS\n    * Mode: Per Word / Sentence / Sentence Advanced\n    * Output: SRT / SSA / VTT\n    * Automatically saved to output/captions\n\nADVANCED NOTES:\n---------------\n- \"Sentence Advanced\" mode respects punctuation & parentheses\n- Avoid placing Dia2 weights in diffusion_models (node will warn)\n- Combine nodes for a full TTS + captions pipeline\n\nCREDITS:\n--------\nBig shout out to nari-labs for a smashing job on Dia2! 🎉\n\n===================================================="
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      184,
+      144,
+      0,
+      135,
+      0,
+      "STRING"
+    ],
+    [
+      200,
+      100,
+      0,
+      158,
+      0,
+      "AUDIO"
+    ],
+    [
+      201,
+      111,
+      0,
+      158,
+      1,
+      "AUDIO"
+    ],
+    [
+      202,
+      158,
+      0,
+      84,
+      0,
+      "AUDIO"
+    ],
+    [
+      203,
+      158,
+      1,
+      109,
+      0,
+      "STRING"
+    ],
+    [
+      204,
+      158,
+      1,
+      144,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Voice Samples",
+      "bounding": [
+        -170,
+        140,
+        420,
+        420
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Dia2 TTS Generator",
+      "bounding": [
+        270,
+        -80,
+        840,
+        640
+      ],
+      "color": "#7b2ff7",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Enable Voice Samples",
+      "bounding": [
+        -170,
+        -80,
+        420,
+        190
+      ],
+      "color": "#A88",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Captions Generator",
+      "bounding": [
+        690,
+        580,
+        420,
+        780
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.11678157794248,
+      "offset": [
+        484.5024635626614,
+        253.9073826962169
+      ]
+    },
+    "frontendVersion": "1.34.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
