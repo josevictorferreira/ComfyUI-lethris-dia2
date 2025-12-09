@@ -44,6 +44,7 @@ Generate high-quality text-to-speech and captions inside **ComfyUI** with ease. 
 
 ## Installation
 
+⚡ **GPU Users:** Dia2 requires CUDA 12.8 or higher. Make sure your NVIDIA drivers and PyTorch installation are compatible with CUDA 12.8+ for GPU acceleration. CPU mode works but is slower.
 
 
 1. Download Dia2-2B model & tokenizer from:  
@@ -120,6 +121,7 @@ These show how to set up multi-speaker prompts and caption generation.
 
 - If weights are found in `diffusion_models`, the node will warn you but can still load them.  
 
+- ⚡ **GPU Users:** Dia2 requires CUDA 12.8 or higher. Make sure your NVIDIA drivers and PyTorch installation are compatible with CUDA 12.8+ for GPU acceleration. CPU mode works but is slower.
 
 
 ---
