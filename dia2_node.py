@@ -30,6 +30,11 @@ except Exception:
 CATEGORY = "lethris🧠/Dia2"
 
 
+def _normalize_path(path: str) -> str:
+    """Normalize path separators for cross-platform compatibility."""
+    return path.replace("\\", "/")
+
+
 def _collect_safetensors_roots() -> list[str]:
     """Collect safetensors/weights files from configured model roots (dropdown values)."""
     out = []
@@ -42,7 +47,7 @@ def _collect_safetensors_roots() -> list[str]:
 
     for f in files:
         if str(f).lower().endswith((".safetensors", ".pt", ".pth", ".bin")):
-            out.append(f)
+            out.append(_normalize_path(str(f)))
 
     # Remove duplicates
     out = sorted(dict.fromkeys(out))
@@ -53,7 +58,7 @@ def _collect_safetensors_roots() -> list[str]:
     except Exception:
         alt_files = []
 
-    alt_files = [f for f in alt_files if str(f).lower().endswith((".safetensors", ".pt", ".pth", ".bin"))]
+    alt_files = [_normalize_path(str(f)) for f in alt_files if str(f).lower().endswith((".safetensors", ".pt", ".pth", ".bin"))]
 
     if alt_files:
         print(
@@ -75,7 +80,7 @@ def _collect_tokenizer_candidates() -> list[str]:
         for f in files:
             fn = str(f).lower()
             if "tokenizer" in fn and fn.endswith((".json", ".txt")):
-                out.append(f)
+                out.append(_normalize_path(str(f)))
     out = sorted(dict.fromkeys(out))
     out.insert(0, "")
     return out
@@ -201,7 +206,9 @@ class Dia2_TTS_Generator:
             dtype_use = "bfloat16" if (dtype == "auto" and device_use == "cuda") else ("float32" if dtype == "auto" else dtype)
             if not model_file:
                 raise FileNotFoundError("No Dia2 weights file selected.")
-            model_path = Path(model_file).resolve() if os.path.exists(model_file) else Path(folder_paths.get_full_path("dia2", model_file)).resolve()
+            # Normalize path separators for cross-platform compatibility
+            model_file_normalized = _normalize_path(model_file)
+            model_path = Path(model_file_normalized).resolve() if os.path.exists(model_file_normalized) else Path(folder_paths.get_full_path("dia2", model_file_normalized)).resolve()
             if not model_path.exists():
                 raise FileNotFoundError(f"Dia2 weights not found: {model_file}")
             if model_path.is_file():
@@ -221,7 +228,9 @@ class Dia2_TTS_Generator:
                 raise FileNotFoundError(f"No Dia2 config found in model folder: {model_dir}")
             tokenizer_id: Optional[str] = None
             if tokenizer_file and tokenizer_file.strip():
-                resolved = Path(tokenizer_file).resolve() if os.path.exists(tokenizer_file) else Path(folder_paths.get_full_path("dia2", tokenizer_file)).resolve()
+                # Normalize path separators for cross-platform compatibility
+                tokenizer_file_normalized = _normalize_path(tokenizer_file)
+                resolved = Path(tokenizer_file_normalized).resolve() if os.path.exists(tokenizer_file_normalized) else Path(folder_paths.get_full_path("dia2", tokenizer_file_normalized)).resolve()
                 tokenizer_id = str(resolved.parent)
             mimi_val = mimi_id.strip() if mimi_id else None
         except Exception as e:
